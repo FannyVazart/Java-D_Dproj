@@ -54,12 +54,12 @@ public abstract class Personnage {
     }
 
 
-    public void setType(String type) {
-        this.type = type;
+    public int getLifeLevel() {
+        return lifeLevel;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getForceAttaque() {
+        return forceAttaque;
     }
 
 }

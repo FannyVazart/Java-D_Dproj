@@ -6,6 +6,7 @@ public class Game {
 
     public Game(Personnage perso) {
         position = perso.getPosition();
+        System.out.println("Tu es sur la case " + perso.getPosition() + "/64");
         while (position < 64) {
             go();
         }
