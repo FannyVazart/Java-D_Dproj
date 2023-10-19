@@ -9,9 +9,11 @@ public class Game {
         while (position < 64) {
             go();
         }
+
         System.out.println("Veux tu rejouer ? OUI (1) / NON (2)");
         Scanner choice = new Scanner(System.in);  // Create a Scanner object
         String rejouer = choice.nextLine();// Read user input
+
         if (rejouer.equals("1")) {
             Menu menu2 = new Menu();
             menu2.initMenu();

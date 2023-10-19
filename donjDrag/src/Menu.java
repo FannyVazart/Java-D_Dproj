@@ -16,6 +16,13 @@ public class Menu {
         }
     }
     public void selectPerso()  {
+
+        Personnage persoUn;
+
+        System.out.println("Quel est le nom de votre personnage ?");
+        Scanner nom = new Scanner(System.in);  // Create a Scanner object
+        String nomChoisi = nom.nextLine();  // Read user input
+
         System.out.println("Quel personnage choisissez-vous: guerrier(1) ou magicien(2) ?");
         Scanner perso = new Scanner(System.in);  // Create a Scanner object
         String numChoisi = perso.nextLine();  // Read user input
@@ -23,16 +30,15 @@ public class Menu {
         if (numChoisi.equals("1")) {
             persoChoisi = "guerrier";
             System.out.println("Vous avez choisi un guerrier.");
+            persoUn = new Guerrier(nomChoisi);
         } else {
             persoChoisi = "magicien";
             System.out.println("Vous avez choisi un magicien.");
+            persoUn = new Magicien(nomChoisi);
         }
 
-        System.out.println("Quel est le nom de votre personnage ?");
-        Scanner nom = new Scanner(System.in);  // Create a Scanner object
-        String nomChoisi = nom.nextLine();  // Read user input
-        Personnage persoUn = new Personnage(persoChoisi, nomChoisi);
         Game jeuUn = new Game(persoUn);
+
     }
 
 }

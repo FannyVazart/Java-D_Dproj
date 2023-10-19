@@ -1,4 +1,4 @@
-public class Personnage {
+public abstract class Personnage {
     private String type;
     private String name;
     private int lifeLevel;
@@ -7,23 +7,38 @@ public class Personnage {
     private EquipementDefensif eqdef;
     private int position = 1;
 
-    public Personnage(String typePerso, String namePerso) {
+    protected Personnage(String typePerso, String namePerso, int lifeLevelPerso, int forceAttaquePerso) {
         type = typePerso;
         name = namePerso;
+        lifeLevel = lifeLevelPerso;
+        forceAttaque = forceAttaquePerso;
 
-        if (type.equals("guerrier")) {
-            lifeLevel = 10;
-            forceAttaque = 10;
-        } else {
-            lifeLevel = 6;
-            forceAttaque = 15;
-        }
+//        if (type.equals("guerrier")) {
+//            lifeLevel = 10;
+//            forceAttaque = 10;
+//        } else {
+//            lifeLevel = 6;
+//            forceAttaque = 15;
+//        }
 
-        System.out.println("Bienvenue " + name + ", vous allez commencer une quête majestueuse en tant " +
-                "que " + type + ", voici vos statistiques:");
-        System.out.println("Vos points de vie : " + lifeLevel);
-        System.out.println("Vos points d'attaque : " + forceAttaque);
+//        System.out.println("Bienvenue " + name + ", vous allez commencer une quête majestueuse en tant " +
+//                "que " + type + ", voici vos statistiques:");
+//        System.out.println("Vos points de vie : " + lifeLevel);
+//        System.out.println("Vos points d'attaque : " + forceAttaque);
 
+    }
+
+//    public PersonnageDeux(String namePerso) {
+//        name = namePerso;
+//    }
+//
+//    public PersonnageTrois() {
+//
+//    }
+
+    public String toString() {
+        return "C'est un personnage de type " + type + ", qui s'appelle " + name + ". Il a " + lifeLevel +
+                " points de vie, et " + forceAttaque + " points d'attaque.";
     }
 
     public String getType() {
