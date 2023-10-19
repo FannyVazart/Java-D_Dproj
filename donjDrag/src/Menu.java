@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 public class Menu {
 
+    private String persoChoisi;
+    private String nomChoisi;
+
     public void initMenu()  {
         System.out.println("Voulez-vous créer un personnage(1) ou quitter le jeu(2)?");
         Scanner choice = new Scanner(System.in);  // Create a Scanner object
@@ -13,33 +16,23 @@ public class Menu {
         }
     }
     public void selectPerso()  {
-        System.out.println("Quel personnage choisissez-vous: guerrier ou magicien ?");
+        System.out.println("Quel personnage choisissez-vous: guerrier(1) ou magicien(2) ?");
         Scanner perso = new Scanner(System.in);  // Create a Scanner object
-        String persoChoisi = perso.nextLine();  // Read user input
-        System.out.println("Vous avez choisi un " + persoChoisi);
+        String numChoisi = perso.nextLine();  // Read user input
+
+        if (numChoisi.equals("1")) {
+            persoChoisi = "guerrier";
+            System.out.println("Vous avez choisi un guerrier.");
+        } else {
+            persoChoisi = "magicien";
+            System.out.println("Vous avez choisi un magicien.");
+        }
+
         System.out.println("Quel est le nom de votre personnage ?");
         Scanner nom = new Scanner(System.in);  // Create a Scanner object
         String nomChoisi = nom.nextLine();  // Read user input
-        System.out.println("Votre nom est " + nomChoisi);
+        Personnage persoUn = new Personnage(persoChoisi, nomChoisi);
+        Game jeuUn = new Game(persoUn);
     }
-
-
-
-    //faire des ifs si mauvais choix + rendre indépendant à la casse (ou taper 1 ou 2)
-    //+ transformer en fonction et ensuite appeler dans main()
-    // Instancie perso + Definir ici les caracteristiques si guerrier ou magicien
-
-
-    //        if (typePerso.equals("guerrier")) {
-//            lifeLevelPerso = 10;
-//        } else if (typePerso.equals("magicien")) {
-//            lifeLevelPerso = 6;
-//        }
-//
-//        if (typePerso.equals("guerrier")) {
-//            forceAttaquePerso = 10;
-//        } else if (typePerso.equals("magicien")) {
-//            forceAttaquePerso = 15;
-//        }
 
 }

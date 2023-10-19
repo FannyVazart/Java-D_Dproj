@@ -1,5 +1,5 @@
 public class EquipementDefensif {
-    String defensiveWeapon;
-    int attaqueLevel;
-    String name;
+    private String defensiveWeapon;
+    private int attaqueLevel;
+    private String name;
 }
