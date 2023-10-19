@@ -5,7 +5,7 @@ public class Menu {
     private String persoChoisi;
     private String nomChoisi;
 
-    public void initMenu()  {
+    public void Menu()  {
         System.out.println("Voulez-vous créer un personnage(1) ou quitter le jeu(2)?");
         Scanner choice = new Scanner(System.in);  // Create a Scanner object
         String firstChoice = choice.nextLine();// Read user input
@@ -37,8 +37,11 @@ public class Menu {
             persoUn = new Magicien(nomChoisi);
         }
 
-        Game jeuUn = new Game(persoUn);
-
+//        try {
+            Game jeuUn = new Game(persoUn);
+//        } catch (Exception e) {
+//            System.out.println("Vous avez gagné!");
+//        }
     }
 
 }
