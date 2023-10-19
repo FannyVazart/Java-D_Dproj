@@ -7,11 +7,14 @@ public abstract class Personnage {
     private EquipementDefensif eqdef;
     private int position = 1;
 
-    protected Personnage(String typePerso, String namePerso, int lifeLevelPerso, int forceAttaquePerso) {
+    protected Personnage(String typePerso, String namePerso, int lifeLevelPerso, int forceAttaquePerso,
+                         EquipementOffensif eqoffPerso, EquipementDefensif eqdefPerso) {
         type = typePerso;
         name = namePerso;
         lifeLevel = lifeLevelPerso;
         forceAttaque = forceAttaquePerso;
+        eqoff = eqoffPerso;
+        eqdef = eqdefPerso;
 
 //        if (type.equals("guerrier")) {
 //            lifeLevel = 10;
@@ -62,4 +65,11 @@ public abstract class Personnage {
         return forceAttaque;
     }
 
+    public EquipementOffensif getEqoff() {
+        return eqoff;
+    }
+
+    public EquipementDefensif getEqdef() {
+        return eqdef;
+    }
 }

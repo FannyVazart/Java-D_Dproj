@@ -1,7 +1,7 @@
 public class Magicien extends Personnage {
 
     public Magicien(String name) {
-        super("magicien", name, 6, 15);
+        super("magicien", name, 6, 15, new Sort("Eclair"), new Philtre("Amour"));
         getPosition();
     }
 

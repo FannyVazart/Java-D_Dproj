@@ -37,7 +37,6 @@ public class Menu {
             persoUn = new Magicien(nomChoisi);
         }
 
-        System.out.println(persoUn);
         Game jeuUn = new Game(persoUn);
 
     }

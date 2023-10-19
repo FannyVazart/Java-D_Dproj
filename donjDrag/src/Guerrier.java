@@ -1,7 +1,7 @@
 public class Guerrier extends Personnage {
 
     public Guerrier(String name) {
-        super("guerrier", name, 10, 10);
+        super("guerrier", name, 10, 10, new Arme("Epée"), new Bouclier("Bouclier fort"));
         getPosition();
     }
 
