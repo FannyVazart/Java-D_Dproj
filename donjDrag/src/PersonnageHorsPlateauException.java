@@ -1,4 +1,5 @@
-//public class PersonnageHorsPlateauException extends Exception {
-//
-//
-//}
+public class PersonnageHorsPlateauException extends Exception {
+    public PersonnageHorsPlateauException(String winWin) {
+        super(winWin);
+    }
+}

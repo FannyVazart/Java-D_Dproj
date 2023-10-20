@@ -4,17 +4,14 @@ public class Game {
     private int position;
     private int dice;
 
-    public Game(Personnage perso) /* throws Exception */ {
+    public Game(Personnage perso) throws PersonnageHorsPlateauException {
         position = perso.getPosition();
         System.out.println("Tu es sur la case " + perso.getPosition() + "/64");
         while (position < 64) {
             go();
-
-//            if (position >= 65) {
-//               throw new PersonnageHorsPlateauException();
-//            }
-
-
+            if (position >= 64) {
+                throw new PersonnageHorsPlateauException("Tu as gagné !");
+            }
         }
 
 
@@ -37,7 +34,11 @@ public class Game {
         tossDice();
         position += dice;
         System.out.println("Tu as fait " + dice);
-        System.out.println("Tu es sur la case " + position + "/64");
+        if (position > 64) {
+            System.out.println("Tu es sur la case 64/64");
+        } else {
+            System.out.println("Tu es sur la case " + position + "/64");
+        }
     }
 
 }

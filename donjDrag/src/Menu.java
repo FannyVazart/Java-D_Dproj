@@ -37,11 +37,11 @@ public class Menu {
             persoUn = new Magicien(nomChoisi);
         }
 
-//        try {
+        try {
             Game jeuUn = new Game(persoUn);
-//        } catch (Exception e) {
-//            System.out.println("Vous avez gagné!");
-//        }
+        } catch (PersonnageHorsPlateauException e) {
+            System.out.println("Vous avez gagné!");
+        }
     }
 
 }
