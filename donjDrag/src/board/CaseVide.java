@@ -1,6 +1,9 @@
 package board;
 
-public class CaseVide {
+public class CaseVide /* implements Case */ {
+    public String toString() {
+        return "Case vide, ouf !";
+    }
 
 
 }

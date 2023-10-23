@@ -14,7 +14,7 @@ public class Potions extends CaseVide {
 
     public String toString() {
 
-        return "C'est un " + getName() + "!! Tu gagnes " + getLifePoints() +
+        return "C'est une " + getName() + "!! Tu gagnes " + getLifePoints() +
                 "points de vie !";
     }
 

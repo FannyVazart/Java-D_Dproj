@@ -44,7 +44,7 @@ public class Menu {
         try {
             Game jeuUn = new Game(persoUn);
         } catch (PersonnageHorsPlateauException e) {
-            System.out.println("Vous avez gagné!");
+            System.out.println("Tu as gagné, tu es en vie!");
 
             System.out.println("Veux-tu rejouer ? OUI (1) / NON (2)");
             Scanner choice = new Scanner(System.in);  // Create a Scanner object

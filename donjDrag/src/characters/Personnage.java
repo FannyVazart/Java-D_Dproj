@@ -22,8 +22,8 @@ public abstract class Personnage {
 
     public String toString() {
 
-        return "C'est un personnage de type " + getType() + ", qui s'appelle " + getName() + ". Il a " + getLifeLevel() +
-                " points de vie, et " + getForceAttaque() + " points d'attaque.";
+        return "Type: " + getType() + ", nom: " + getName() + ". Points de vie: " + getLifeLevel() +
+                ". Points d'attaque: " + getForceAttaque() + ".";
     }
 
     public abstract String getType();

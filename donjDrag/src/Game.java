@@ -1,3 +1,4 @@
+import board.Board;
 import characters.Personnage;
 //import Cases;
 
@@ -5,10 +6,6 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Game {
-//    private ArrayList<Cases> board = new ArrayList<Cases>();
-//       str.add("Geeks");
-//       str.add("for");
-//       str.add("Geeks");
     private int position;
     private int dice;
 
@@ -17,7 +14,9 @@ public class Game {
         System.out.println(perso);
         System.out.println("Tu es sur la case " + perso.getPosition() + "/64");
         while (position < 64) {
+            Board plateau = new Board();
             go();
+            plateau.posBoard(position - 1);
             if (position >= 64) {
                 throw new PersonnageHorsPlateauException("Gagné!");
             }
@@ -25,7 +24,8 @@ public class Game {
     }
 
     public void tossDice() {
-        dice = 1 + (int) (Math.random() * (6));
+//        dice = 1 + (int) (Math.random() * (6));
+        dice = 5;
     }
 
     public void go() {
@@ -34,10 +34,8 @@ public class Game {
         System.out.println("Tu as fait " + dice);
         if (position > 64) {
             position = 64;
-            System.out.println("Tu es sur la case " + position + "/64");
-        } else {
-            System.out.println("Tu es sur la case " + position + "/64");
         }
+            System.out.println("Tu es sur la case " + position + "/64");
     }
 
 }
