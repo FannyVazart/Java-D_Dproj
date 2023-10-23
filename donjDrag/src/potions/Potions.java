@@ -12,6 +12,11 @@ public class Potions extends CaseVide {
         lifePoints = lifePointsPot;
     }
 
+//    public int modifLife(int ptsLife) {
+//
+// à écrire plus tard après avoir fait des tests dans classe game !
+
+
     public String toString() {
 
         return "C'est une " + getName() + "!! Tu gagnes " + getLifePoints() +

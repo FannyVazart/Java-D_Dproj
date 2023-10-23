@@ -1,4 +1,6 @@
 import board.Board;
+import characters.Guerrier;
+import characters.Magicien;
 import characters.Personnage;
 //import Cases;
 
@@ -15,9 +17,31 @@ public class Game {
         System.out.println("Tu es sur la case " + perso.getPosition() + "/64");
         while (position < 64) {
             Board plateau = new Board();
+
             go();
-//            plateau.posBoard(position - 1);
-            plateau.isObjectEnnemi(position - 1);
+
+            plateau.posBoard(position - 1);
+
+            if (plateau.isObjectEnnemi(position - 1)) {
+                System.out.println("FIIIGHT");
+            }
+
+            if (plateau.isObjectSort(position - 1) && perso instanceof Magicien) {
+                System.out.println(perso.getLifeLevel());
+            }
+
+            if (plateau.isObjectArme(position - 1) && perso instanceof Guerrier) {
+                System.out.println("On choppe l'arme !!");
+            }
+
+            if (plateau.isObjectPotion(position - 1)) {
+                System.out.println("Glouglou et des points de vie !!");
+                perso.setLifeLevel(perso.getLifeLevel() + 3);
+                System.out.println("Nouveaux points de vie: " + perso.getLifeLevel());
+            }
+
+
+
             if (position >= 64) {
                 throw new PersonnageHorsPlateauException("Gagné!");
             }
@@ -25,8 +49,8 @@ public class Game {
     }
 
     public void tossDice() {
-//        dice = 1 + (int) (Math.random() * (6));
-        dice = 5;
+        dice = 1 + (int) (Math.random() * (6));
+//        dice = 5;
     }
 
     public void go() {

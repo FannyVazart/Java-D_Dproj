@@ -3,12 +3,10 @@ import ennemis.Dragon;
 import ennemis.Ennemis;
 import ennemis.Gobelin;
 import ennemis.Sorcier;
-import offense.BouleFeu;
-import offense.Eclair;
-import offense.Epee;
-import offense.Massue;
+import offense.*;
 import potions.GdePotion;
 import potions.PotionStand;
+import potions.Potions;
 
 import java.util.ArrayList;
 
@@ -87,8 +85,20 @@ public class Board {
         System.out.println(board.get(pos));
     }
 
-    public void isObjectEnnemi(int pos) {
-        System.out.println(board.get(pos) instanceof Ennemis);
+    public boolean isObjectEnnemi(int pos) {
+        return board.get(pos) instanceof Ennemis;
+    }
+
+    public boolean isObjectSort(int pos) {
+        return board.get(pos) instanceof Sort;
+    }
+
+    public boolean isObjectArme(int pos) {
+        return board.get(pos) instanceof Arme;
+    }
+
+    public boolean isObjectPotion(int pos) {
+        return board.get(pos) instanceof Potions;
     }
 
 
