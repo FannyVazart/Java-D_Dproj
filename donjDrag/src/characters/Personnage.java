@@ -51,4 +51,12 @@ public abstract class Personnage {
     public EquipementDefensif getEqdef() {
         return eqdef;
     }
+
+    public void setLifeLevel(int lifeLevel) {
+        this.lifeLevel = lifeLevel;
+    }
+
+    public void setForceAttaque(int forceAttaque) {
+        this.forceAttaque = forceAttaque;
+    }
 }

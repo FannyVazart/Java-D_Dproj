@@ -1,5 +1,6 @@
 package board;
 import ennemis.Dragon;
+import ennemis.Ennemis;
 import ennemis.Gobelin;
 import ennemis.Sorcier;
 import offense.BouleFeu;
@@ -85,5 +86,10 @@ public class Board {
     public void posBoard(int pos) {
         System.out.println(board.get(pos));
     }
+
+    public void isObjectEnnemi(int pos) {
+        System.out.println(board.get(pos) instanceof Ennemis);
+    }
+
 
 }

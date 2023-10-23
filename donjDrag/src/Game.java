@@ -16,7 +16,8 @@ public class Game {
         while (position < 64) {
             Board plateau = new Board();
             go();
-            plateau.posBoard(position - 1);
+//            plateau.posBoard(position - 1);
+            plateau.isObjectEnnemi(position - 1);
             if (position >= 64) {
                 throw new PersonnageHorsPlateauException("Gagné!");
             }
