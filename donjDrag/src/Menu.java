@@ -1,3 +1,7 @@
+import characters.Guerrier;
+import characters.Magicien;
+import characters.Personnage;
+
 import java.util.Scanner;
 
 public class Menu {
@@ -5,7 +9,7 @@ public class Menu {
     private String persoChoisi;
     private String nomChoisi;
 
-    public void Menu()  {
+    public Menu()  {
         System.out.println("Voulez-vous créer un personnage(1) ou quitter le jeu(2)?");
         Scanner choice = new Scanner(System.in);  // Create a Scanner object
         String firstChoice = choice.nextLine();// Read user input
@@ -41,6 +45,14 @@ public class Menu {
             Game jeuUn = new Game(persoUn);
         } catch (PersonnageHorsPlateauException e) {
             System.out.println("Vous avez gagné!");
+
+            System.out.println("Veux-tu rejouer ? OUI (1) / NON (2)");
+            Scanner choice = new Scanner(System.in);  // Create a Scanner object
+            String rejouer = choice.nextLine();// Read user input
+
+            if (rejouer.equals("1")) {
+                new Menu();
+            }
         }
     }
 
