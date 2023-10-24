@@ -13,68 +13,49 @@ import java.util.ArrayList;
 public class Board {
 
     private ArrayList<CaseVide> board = new ArrayList<>();
+    private Dragon drag = new Dragon();
+    private Sorcier sorc = new Sorcier();
+    private Gobelin gob = new Gobelin();
+    private Massue mass = new Massue();
+    private Epee epee = new Epee();
+    private Eclair eclair = new Eclair();
+    private BouleFeu boule = new BouleFeu();
+    private PotionStand potSt = new PotionStand();
+    private GdePotion gdePot = new GdePotion();
+
     public Board() {
+
         for (int i = 0; i < 64; i++) {
-            board.add(new CaseVide());
+            if (i == 44 || i == 51 || i == 55 || i == 61) {
+                board.add(i, drag);
+            }
+            if (i == 9 || i == 19 || i == 24 || i == 31 || i == 34 || i == 35 || i == 36 || i == 39 || i == 43 || i == 46 ) {
+                board.add(i, sorc);
+            }
+            if (i == 2 || i == 5 || i == 8 || i == 11 || i == 14 || i == 17 || i == 20 || i == 23 || i == 26 || i == 29) {
+                board.add(i, gob);
+            }
+            if (i == 1 || i == 10 || i == 4 || i == 21 || i == 37) {
+                board.add(i, mass);
+            }
+            if (i == 18 || i == 25 || i == 41 || i == 52) {
+                board.add(i, epee);
+            }
+            if (i == 0 || i == 3 || i == 7 || i == 16 || i == 22) {
+                board.add(i, eclair);
+            }
+            if (i == 47 || i == 48) {
+                board.add(i, boule);
+            }
+            if (i == 6 || i == 12 || i == 30 || i == 32 || i == 38 || i == 42) {
+                board.add(i, potSt);
+            }
+            if (i == 27 || i == 40) {
+                board.add(i, gdePot);
+            } else {
+                board.add(new CaseVide());
+            }
         }
-
-        board.set(44, new Dragon());
-        board.set(51, new Dragon());
-        board.set(55, new Dragon());
-        board.set(61, new Dragon());
-
-        board.set(9, new Sorcier());
-        board.set(19, new Sorcier());
-        board.set(24, new Sorcier());
-        board.set(31, new Sorcier());
-        board.set(34, new Sorcier());
-        board.set(35, new Sorcier());
-        board.set(36, new Sorcier());
-        board.set(39, new Sorcier());
-        board.set(43, new Sorcier());
-        board.set(46, new Sorcier());
-
-        board.set(2, new Gobelin());
-        board.set(5, new Gobelin());
-        board.set(8, new Gobelin());
-        board.set(11, new Gobelin());
-        board.set(14, new Gobelin());
-        board.set(17, new Gobelin());
-        board.set(20, new Gobelin());
-        board.set(23, new Gobelin());
-        board.set(26, new Gobelin());
-        board.set(29, new Gobelin());
-
-        board.set(1, new Massue());
-        board.set(10, new Massue());
-        board.set(4, new Massue());
-        board.set(21, new Massue());
-        board.set(37, new Massue());
-
-        board.set(18, new Epee());
-        board.set(25, new Epee());
-        board.set(41, new Epee());
-        board.set(52, new Epee());
-
-        board.set(0, new Eclair());
-        board.set(3, new Eclair());
-        board.set(7, new Eclair());
-        board.set(16, new Eclair());
-        board.set(22, new Eclair());
-
-        board.set(47, new BouleFeu());
-        board.set(48, new BouleFeu());
-
-        board.set(6, new PotionStand());
-        board.set(12, new PotionStand());
-        board.set(30, new PotionStand());
-        board.set(32, new PotionStand());
-        board.set(38, new PotionStand());
-        board.set(42, new PotionStand());
-
-        board.set(27, new GdePotion());
-        board.set(40, new GdePotion());
-
 
 //        for (int i = 0; i < 64; i++) {
 //            System.out.println("Case " + (i+1) + ": " + board.get(i));
@@ -101,5 +82,39 @@ public class Board {
         return board.get(pos) instanceof Potions;
     }
 
+    public Dragon getDrag() {
+        return drag;
+    }
 
+    public Sorcier getSorc() {
+        return sorc;
+    }
+
+    public Gobelin getGob() {
+        return gob;
+    }
+
+    public Massue getMass() {
+        return mass;
+    }
+
+    public Epee getEpee() {
+        return epee;
+    }
+
+    public Eclair getEclair() {
+        return eclair;
+    }
+
+    public BouleFeu getBoule() {
+        return boule;
+    }
+
+    public PotionStand getPotSt() {
+        return potSt;
+    }
+
+    public GdePotion getGdePot() {
+        return gdePot;
+    }
 }

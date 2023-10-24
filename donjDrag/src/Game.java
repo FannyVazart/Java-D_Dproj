@@ -35,8 +35,7 @@ public class Game {
             }
 
             if (plateau.isObjectPotion(position - 1)) {
-                System.out.println("Glouglou et des points de vie !!");
-                perso.setLifeLevel(perso.getLifeLevel() + 3);
+//                perso.setLifeLevel(perso.getLifeLevel() + plateau.ge);
                 System.out.println("Nouveaux points de vie: " + perso.getLifeLevel());
             }
 
