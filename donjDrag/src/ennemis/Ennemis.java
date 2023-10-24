@@ -25,6 +25,7 @@ public abstract class Ennemis extends CaseVide {
     }
 
     public int getLifeLevel() {
+
         return lifeLevel;
     }
 

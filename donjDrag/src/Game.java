@@ -35,10 +35,10 @@ public class Game {
             }
 
             if (plateau.isObjectPotion(position - 1)) {
-//                perso.setLifeLevel(perso.getLifeLevel() + plateau.ge);
+                perso.setLifeLevel(perso.getLifeLevel() + plateau.getPotSt().getLifePoints());
+                perso.setLifeLevel(plateau.getPotSt().modifLife(perso.getLifeLevel()));
                 System.out.println("Nouveaux points de vie: " + perso.getLifeLevel());
             }
-
 
 
             if (position >= 64) {

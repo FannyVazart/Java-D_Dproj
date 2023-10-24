@@ -2,7 +2,7 @@ package potions;
 
 import board.CaseVide;
 
-public class Potions extends CaseVide {
+public abstract class Potions extends CaseVide {
 
     private String name;
     private int lifePoints;
@@ -27,8 +27,6 @@ public class Potions extends CaseVide {
         return name;
     }
 
-    public int getLifePoints() {
-        return lifePoints;
-    }
+    public abstract int getLifePoints();
 
 }

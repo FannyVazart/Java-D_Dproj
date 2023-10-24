@@ -12,48 +12,31 @@ import java.util.ArrayList;
 
 public class Board {
 
-    private ArrayList<CaseVide> board = new ArrayList<>();
-    private Dragon drag = new Dragon();
-    private Sorcier sorc = new Sorcier();
-    private Gobelin gob = new Gobelin();
-    private Massue mass = new Massue();
-    private Epee epee = new Epee();
-    private Eclair eclair = new Eclair();
-    private BouleFeu boule = new BouleFeu();
-    private PotionStand potSt = new PotionStand();
-    private GdePotion gdePot = new GdePotion();
+    private final ArrayList<CaseVide> board = new ArrayList<>();
+    private final Ennemis drag = new Dragon();
+    private final Ennemis sorc = new Sorcier();
+    private final Ennemis gob = new Gobelin();
+    private final Arme mass = new Massue();
+    private final Arme epee = new Epee();
+    private final Sort eclair = new Eclair();
+    private final Sort boule = new BouleFeu();
+    private final Potions potSt = new PotionStand();
+    private final Potions gdePot = new GdePotion();
 
     public Board() {
 
         for (int i = 0; i < 64; i++) {
-            if (i == 44 || i == 51 || i == 55 || i == 61) {
-                board.add(i, drag);
-            }
-            if (i == 9 || i == 19 || i == 24 || i == 31 || i == 34 || i == 35 || i == 36 || i == 39 || i == 43 || i == 46 ) {
-                board.add(i, sorc);
-            }
-            if (i == 2 || i == 5 || i == 8 || i == 11 || i == 14 || i == 17 || i == 20 || i == 23 || i == 26 || i == 29) {
-                board.add(i, gob);
-            }
-            if (i == 1 || i == 10 || i == 4 || i == 21 || i == 37) {
-                board.add(i, mass);
-            }
-            if (i == 18 || i == 25 || i == 41 || i == 52) {
-                board.add(i, epee);
-            }
-            if (i == 0 || i == 3 || i == 7 || i == 16 || i == 22) {
-                board.add(i, eclair);
-            }
-            if (i == 47 || i == 48) {
-                board.add(i, boule);
-            }
-            if (i == 6 || i == 12 || i == 30 || i == 32 || i == 38 || i == 42) {
-                board.add(i, potSt);
-            }
-            if (i == 27 || i == 40) {
-                board.add(i, gdePot);
-            } else {
-                board.add(new CaseVide());
+            switch (i) {
+                case 44, 51, 55, 61 -> board.add(i, drag);
+                case 9, 19, 24, 31, 34, 35, 36, 39, 43, 46 -> board.add(i, sorc);
+                case 2, 5, 8, 11, 14, 17, 20, 23, 26, 29 -> board.add(i, gob);
+                case 1, 10, 4, 21, 37 -> board.add(i, mass);
+                case 18, 25, 41, 52 -> board.add(i, epee);
+                case 0, 3, 7, 16, 22 -> board.add(i, eclair);
+                case 47, 48 -> board.add(i, boule);
+                case 6, 12, 30, 32, 38, 42 -> board.add(i, potSt);
+                case 27, 40 -> board.add(i, gdePot);
+                default -> board.add(new CaseVide());
             }
         }
 
@@ -82,39 +65,43 @@ public class Board {
         return board.get(pos) instanceof Potions;
     }
 
-    public Dragon getDrag() {
+    public ArrayList<CaseVide> getBoard() {
+        return board;
+    }
+
+    public Ennemis getDrag() {
         return drag;
     }
 
-    public Sorcier getSorc() {
+    public Ennemis getSorc() {
         return sorc;
     }
 
-    public Gobelin getGob() {
+    public Ennemis getGob() {
         return gob;
     }
 
-    public Massue getMass() {
+    public Arme getMass() {
         return mass;
     }
 
-    public Epee getEpee() {
+    public Arme getEpee() {
         return epee;
     }
 
-    public Eclair getEclair() {
+    public Sort getEclair() {
         return eclair;
     }
 
-    public BouleFeu getBoule() {
+    public Sort getBoule() {
         return boule;
     }
 
-    public PotionStand getPotSt() {
+    public Potions getPotSt() {
         return potSt;
     }
 
-    public GdePotion getGdePot() {
+    public Potions getGdePot() {
         return gdePot;
     }
 }
