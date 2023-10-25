@@ -1,8 +1,10 @@
 package ennemis;
 
+import board.Case;
 import board.CaseVide;
+import characters.Personnage;
 
-public abstract class Ennemis extends CaseVide {
+public abstract class Ennemis implements Case {
 
     private String name;
     private int lifeLevel;
@@ -12,6 +14,11 @@ public abstract class Ennemis extends CaseVide {
         name = nameEnn;
         lifeLevel = lifeLevelEnn;
         forceAttaque = forceAttaqueEnn;
+    }
+
+    @Override
+    public void interaction(Personnage perso) {
+        System.out.println("FIIIIGHT!!");
     }
 
     public String toString() {

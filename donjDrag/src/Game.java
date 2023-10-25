@@ -15,41 +15,31 @@ public class Game {
         position = perso.getPosition();
         System.out.println(perso);
         System.out.println("Tu es sur la case " + perso.getPosition() + "/64");
+        Board plateau = new Board();
+
         while (position < 64) {
-            Board plateau = new Board();
 
             go();
 
             plateau.posBoard(position - 1);
-
-            if (plateau.isObjectEnnemi(position - 1)) {
-                System.out.println("FIIIGHT");
-            }
-
-            if (plateau.isObjectSort(position - 1) && perso instanceof Magicien) {
-                System.out.println(perso.getLifeLevel());
-            }
-
-            if (plateau.isObjectArme(position - 1) && perso instanceof Guerrier) {
-                System.out.println("On choppe l'arme !!");
-            }
-
-            if (plateau.isObjectPotion(position - 1)) {
-                perso.setLifeLevel(perso.getLifeLevel() + plateau.getPotSt().getLifePoints());
-                perso.setLifeLevel(plateau.getPotSt().modifLife(perso.getLifeLevel()));
-                System.out.println("Nouveaux points de vie: " + perso.getLifeLevel());
-            }
-
+            plateau.getBoard().get(position - 1).interaction(perso);
 
             if (position >= 64) {
                 throw new PersonnageHorsPlateauException("Gagné!");
+            }
+
+            System.out.println("Tu veux passer au tour suivant(1) ou afficher tes stats(2) ?");
+            Scanner stat = new Scanner(System.in);  // Create a Scanner object
+            String statChoice = stat.nextLine();// Read user input
+            if (statChoice.equals("2")) {
+                System.out.println("Points de vie: " + perso.getLifeLevel());
+                System.out.println("Points d'attaque: " + perso.getForceAttaque());
             }
         }
     }
 
     public void tossDice() {
         dice = 1 + (int) (Math.random() * (6));
-//        dice = 5;
     }
 
     public void go() {

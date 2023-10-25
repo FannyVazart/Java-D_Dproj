@@ -1,5 +1,7 @@
 package offense;
 
+import board.Case;
+import characters.Personnage;
 import offense.EquipementOffensif;
 
 public abstract class Arme extends EquipementOffensif {
@@ -10,5 +12,4 @@ public abstract class Arme extends EquipementOffensif {
             super(attack, name);
         }
 
-
-    }
+}

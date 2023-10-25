@@ -22,8 +22,8 @@ public abstract class Personnage {
 
     public String toString() {
 
-        return "Type: " + getType() + ", nom: " + getName() + ". Points de vie: " + getLifeLevel() +
-                ". Points d'attaque: " + getForceAttaque() + ".";
+        return "Type: " + getType() + ". Nom: " + getName() + ". Points de vie: " + getLifeLevel() +
+               ". Points d'attaque: " + getForceAttaque() + ".";
     }
 
     public abstract String getType();

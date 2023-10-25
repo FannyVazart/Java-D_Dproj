@@ -1,5 +1,7 @@
 package ennemis;
 
+import board.Case;
+
 public class Gobelin extends Ennemis {
 
     public Gobelin() {

@@ -1,5 +1,7 @@
 package potions;
 
+import board.Case;
+
 public class GdePotion extends Potions {
 
     private int lifePoints = 6;

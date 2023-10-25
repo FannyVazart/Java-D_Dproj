@@ -1,5 +1,7 @@
 package offense;
 
+import board.Case;
+
 public class BouleFeu extends Sort {
 
     public BouleFeu() {

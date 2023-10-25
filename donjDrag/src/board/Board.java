@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class Board {
 
-    private final ArrayList<CaseVide> board = new ArrayList<>();
+    private final ArrayList<Case> board = new ArrayList<>();
     private final Ennemis drag = new Dragon();
     private final Ennemis sorc = new Sorcier();
     private final Ennemis gob = new Gobelin();
@@ -49,23 +49,7 @@ public class Board {
         System.out.println(board.get(pos));
     }
 
-    public boolean isObjectEnnemi(int pos) {
-        return board.get(pos) instanceof Ennemis;
-    }
-
-    public boolean isObjectSort(int pos) {
-        return board.get(pos) instanceof Sort;
-    }
-
-    public boolean isObjectArme(int pos) {
-        return board.get(pos) instanceof Arme;
-    }
-
-    public boolean isObjectPotion(int pos) {
-        return board.get(pos) instanceof Potions;
-    }
-
-    public ArrayList<CaseVide> getBoard() {
+    public ArrayList<Case> getBoard() {
         return board;
     }
 
