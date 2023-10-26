@@ -9,7 +9,7 @@ public class Magicien extends Personnage {
 
     private String type = "magicien";
     public Magicien(String name) {
-        super(name, 6, 15, new Eclair(), new Philtre("Amour"));
+        super(name, 3, 8, new Eclair(), new Philtre("Amour"));
         getPosition();
     }
 

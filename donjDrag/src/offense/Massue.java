@@ -5,7 +5,7 @@ import board.Case;
 public class Massue extends Arme {
 
     public Massue() {
-        super("Massue", 5);
+        super("massue", 3);
     }
 
 }

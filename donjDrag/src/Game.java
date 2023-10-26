@@ -22,10 +22,17 @@ public class Game {
             go();
 
             plateau.posBoard(position - 1);
+
             plateau.getBoard().get(position - 1).interaction(perso);
 
             if (position >= 64) {
                 throw new PersonnageHorsPlateauException("Gagné!");
+            }
+
+            if (perso.getLifeLevel() <= 0) {
+                perso.setLifeLevel(0);
+                System.out.println("Tu es mort...");
+                break;
             }
 
             System.out.println("Tu veux passer au tour suivant(1) ou afficher tes stats(2) ?");

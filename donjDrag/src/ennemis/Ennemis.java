@@ -1,5 +1,6 @@
 package ennemis;
 
+import board.Board;
 import board.Case;
 import board.CaseVide;
 import characters.Personnage;
@@ -15,11 +16,23 @@ public abstract class Ennemis implements Case {
         lifeLevel = lifeLevelEnn;
         forceAttaque = forceAttaqueEnn;
     }
-
     @Override
     public void interaction(Personnage perso) {
-        System.out.println("FIIIIGHT!!");
+        punch(perso);
     }
+
+    public void punch(Personnage perso) {
+        System.out.println("Que le combat commence...");
+        setLifeLevel(getLifeLevel() - perso.getForceAttaque());
+        if (getLifeLevel() > 0) {
+            perso.setLifeLevel(perso.getLifeLevel() - getForceAttaque());
+            System.out.println("L'ennemi t'a touché ! Tes nouveaux points de vie: " + perso.getLifeLevel());
+        } else {
+            System.out.println("Bravo, tu as vaincu l'ennemi, il a disparu !");
+        }
+        setLifeLevel(getLifeLevel() + perso.getForceAttaque());
+    }
+
 
     public String toString() {
 
@@ -40,5 +53,11 @@ public abstract class Ennemis implements Case {
         return forceAttaque;
     }
 
+    public void setLifeLevel(int lifeLevel) {
+        this.lifeLevel = lifeLevel;
+    }
 
+    public void setForceAttaque(int forceAttaque) {
+        this.forceAttaque = forceAttaque;
+    }
 }

@@ -9,7 +9,7 @@ public class Guerrier extends Personnage {
     private String type = "guerrier";
 
     public Guerrier(String name) {
-        super(name, 10, 10, new Massue(), new Bouclier("Bouclier fort"));
+        super(name, 5, 5, new Massue(), new Bouclier("Bouclier fort"));
         getPosition();
     }
 

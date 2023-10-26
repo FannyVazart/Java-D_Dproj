@@ -5,7 +5,7 @@ import board.Case;
 public class Sorcier extends Ennemis {
 
     public Sorcier() {
-        super("sorcier", 8, 3);
+        super("sorcier", 9, 2);
     }
 
 }

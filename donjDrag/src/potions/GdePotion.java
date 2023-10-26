@@ -6,7 +6,7 @@ public class GdePotion extends Potions {
 
     private int lifePoints = 6;
     public GdePotion() {
-        super("grande potion", 6);
+        super("grande potion", 5);
     }
 
     public int getLifePoints() {

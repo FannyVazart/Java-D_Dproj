@@ -18,6 +18,13 @@ public abstract class Potions implements Case  {
     public void interaction(Personnage perso) {
         perso.setLifeLevel(perso.getLifeLevel() + getLifePoints());
 
+        if ((perso.getType().equals("guerrier") && perso.getLifeLevel() > 10)) {
+            perso.setLifeLevel(10);
+        }
+        if ((perso.getType().equals("magicien") && perso.getLifeLevel() > 15)) {
+            perso.setLifeLevel(15);
+        }
+
         System.out.println("Nouveaux points de vie: " + perso.getLifeLevel());
     }
 

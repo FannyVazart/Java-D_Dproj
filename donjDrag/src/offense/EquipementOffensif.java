@@ -16,11 +16,20 @@ public abstract class EquipementOffensif implements Case {
     @Override
     public void interaction(Personnage perso) {
         if ((perso.getType().equals("guerrier") && name.equals("épée")) ||
-                (perso.getType().equals("guerrier") && name.equals("massue")) ||
-                    (perso.getType().equals("magicien") && name.equals("éclair")) ||
-                        (perso.getType().equals("magicien") && name.equals("boule de feu"))) {
-                perso.setForceAttaque(perso.getForceAttaque() + getAttaqueLevel());
-                System.out.println("Vos nouveaux points d'attaque: " + getAttaqueLevel());
+                (perso.getType().equals("guerrier") && name.equals("massue"))) {
+            perso.setForceAttaque(perso.getForceAttaque() + getAttaqueLevel());
+            if (perso.getForceAttaque() > 10) {
+                perso.setForceAttaque(10);
+            }
+            System.out.println("Vos nouveaux points d'attaque: " + perso.getForceAttaque());
+        }
+        else if ((perso.getType().equals("magicien") && name.equals("éclair")) ||
+                (perso.getType().equals("magicien") && name.equals("boule de feu"))) {
+            perso.setForceAttaque(perso.getForceAttaque() + getAttaqueLevel());
+            if (perso.getForceAttaque() > 15) {
+                perso.setForceAttaque(15);
+            }
+            System.out.println("Vos nouveaux points d'attaque: " + perso.getForceAttaque());
         } else {
             System.out.println("Mais il ne se passe rien...");
         }
