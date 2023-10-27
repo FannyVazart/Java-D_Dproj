@@ -20,7 +20,6 @@ public class Game {
         while (position < 64) {
 
             go();
-
             plateau.posBoard(position - 1);
 
             if (plateau.getBoard().get(position - 1).interaction(perso) <= 0) {

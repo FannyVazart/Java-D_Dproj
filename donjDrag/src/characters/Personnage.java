@@ -59,4 +59,8 @@ public abstract class Personnage {
     public void setForceAttaque(int forceAttaque) {
         this.forceAttaque = forceAttaque;
     }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
 }
