@@ -23,13 +23,14 @@ public class Game {
 
             plateau.posBoard(position - 1);
 
-            plateau.getBoard().get(position - 1).interaction(perso);
+            if (plateau.getBoard().get(position - 1).interaction(perso) <= 0) {
+            plateau.eraseCase(position-1);}
 
             if (position >= 64) {
                 throw new PersonnageHorsPlateauException("Gagné!");
             }
 
-            if (perso.getLifeLevel() <= 0) {
+            if (perso.getLifeLevel() < 0) {
                 perso.setLifeLevel(0);
                 System.out.println("Tu es mort...");
                 break;

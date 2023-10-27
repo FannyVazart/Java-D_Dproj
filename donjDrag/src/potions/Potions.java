@@ -15,7 +15,7 @@ public abstract class Potions implements Case  {
     }
 
     @Override
-    public void interaction(Personnage perso) {
+    public int interaction(Personnage perso) {
         perso.setLifeLevel(perso.getLifeLevel() + getLifePoints());
 
         if ((perso.getType().equals("guerrier") && perso.getLifeLevel() > 10)) {
@@ -26,6 +26,7 @@ public abstract class Potions implements Case  {
         }
 
         System.out.println("Nouveaux points de vie: " + perso.getLifeLevel());
+        return perso.getLifeLevel();
     }
 
 //    public int modifLife(int ptsLife) {

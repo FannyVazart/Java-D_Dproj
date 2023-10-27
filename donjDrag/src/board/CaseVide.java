@@ -6,8 +6,9 @@ public class CaseVide implements Case {
 
 
     @Override
-    public void interaction(Personnage perso) {
+    public int interaction(Personnage perso) {
         System.out.println("Ouf !");
+        return 0;
     }
 
     public String toString() {

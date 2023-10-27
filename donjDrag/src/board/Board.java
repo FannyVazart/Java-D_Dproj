@@ -1,4 +1,6 @@
 package board;
+
+import characters.Personnage;
 import ennemis.Dragon;
 import ennemis.Ennemis;
 import ennemis.Gobelin;
@@ -7,6 +9,7 @@ import offense.*;
 import potions.GdePotion;
 import potions.PotionStand;
 import potions.Potions;
+import board.Case;
 
 import java.util.ArrayList;
 
@@ -39,10 +42,14 @@ public class Board {
                 default -> board.add(new CaseVide());
             }
         }
+    }
 
-//        for (int i = 0; i < 64; i++) {
+    //        for (int i = 0; i < 64; i++) {
 //            System.out.println("Case " + (i+1) + ": " + board.get(i));
 //        }
+    public void eraseCase(int position) {
+            board.set(position, new CaseVide());
+//            System.out.println(board.get(position));
     }
 
     public void posBoard(int pos) {
@@ -53,39 +60,5 @@ public class Board {
         return board;
     }
 
-    public Ennemis getDrag() {
-        return drag;
-    }
-
-    public Ennemis getSorc() {
-        return sorc;
-    }
-
-    public Ennemis getGob() {
-        return gob;
-    }
-
-    public Arme getMass() {
-        return mass;
-    }
-
-    public Arme getEpee() {
-        return epee;
-    }
-
-    public Sort getEclair() {
-        return eclair;
-    }
-
-    public Sort getBoule() {
-        return boule;
-    }
-
-    public Potions getPotSt() {
-        return potSt;
-    }
-
-    public Potions getGdePot() {
-        return gdePot;
-    }
 }
+

@@ -17,8 +17,9 @@ public abstract class Ennemis implements Case {
         forceAttaque = forceAttaqueEnn;
     }
     @Override
-    public void interaction(Personnage perso) {
+    public int interaction(Personnage perso) {
         punch(perso);
+        return getLifeLevel();
     }
 
     public void punch(Personnage perso) {
@@ -30,9 +31,8 @@ public abstract class Ennemis implements Case {
         } else {
             System.out.println("Bravo, tu as vaincu l'ennemi, il a disparu !");
         }
-        setLifeLevel(getLifeLevel() + perso.getForceAttaque());
+//        setLifeLevel(getLifeLevel() + perso.getForceAttaque());
     }
-
 
     public String toString() {
 
@@ -57,7 +57,4 @@ public abstract class Ennemis implements Case {
         this.lifeLevel = lifeLevel;
     }
 
-    public void setForceAttaque(int forceAttaque) {
-        this.forceAttaque = forceAttaque;
-    }
 }
