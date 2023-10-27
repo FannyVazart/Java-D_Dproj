@@ -38,16 +38,11 @@ public abstract class Ennemis implements Case {
 //    }
 
     public void rounds(Personnage perso) {
-
         System.out.println("Que veux tu faire ? Attaquer(1) ou fuir(2)?");
         Scanner choice1 = new Scanner(System.in);  // Create a Scanner object
         String attaqueFuite = choice1.nextLine();// Read user input
 
-        if (attaqueFuite.equals("2")) {
-            dice = 1 + (int) (Math.random() * (6));
-            perso.setPosition(perso.getPosition() - dice);
-            System.out.println("Tu recules de " + dice + " cases.");
-        } else {
+        if (attaqueFuite.equals("1")) {
             while (perso.getLifeLevel() > 0 && getLifeLevel() > 0) {
                 setLifeLevel(getLifeLevel() - perso.getForceAttaque());
                 if (getLifeLevel() > 0) {
@@ -58,15 +53,18 @@ public abstract class Ennemis implements Case {
                 }
                 System.out.println("Tes PV: " + perso.getLifeLevel());
 
-                    if (getLifeLevel() < 0) {
-                        System.out.println("Ses PV: 0");
-                    } else {
+                if (getLifeLevel() < 0) {
+                    System.out.println("Ses PV: 0");
+                } else {
                     System.out.println("Ses PV: " + getLifeLevel());
-                    }
+                }
             }
+        } else {
+            dice = 1 + (int) (Math.random() * (6));
+            perso.setPosition(perso.getPosition() - dice);
+            System.out.println("Tu recules de " + dice + " cases." + perso.getPosition());
         }
     }
-
 
     public String toString() {
 
