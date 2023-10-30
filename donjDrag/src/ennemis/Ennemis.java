@@ -62,7 +62,7 @@ public abstract class Ennemis implements Case {
         } else {
             dice = 1 + (int) (Math.random() * (6));
             perso.setPosition(perso.getPosition() - dice);
-            System.out.println("Tu recules de " + dice + " cases." + perso.getPosition());
+            System.out.println("Tu recules de " + dice + " cases.");
         }
     }
 
