@@ -45,4 +45,19 @@ public class DbCRUD {
             System.out.println("Les paramètres n'ont pas pu être entrés...");
         }
     }
+
+//    public void editHero(String nomPerso, String newType, String newName, int newLifeLevel, int newForceAttaque) {
+//
+//        try {
+//            PreparedStatement editSQL = dbAccess.prepareStatement("UPDATE hero SET (?, ?, ?, ?) WHERE Name = nomPerso");
+//            editSQL.setString(1, newType);
+//            editSQL.setString(2, newName);
+//            editSQL.setInt(3, newLifeLevel);
+//            editSQL.setInt(4, newForceAttaque);
+//            editSQL.executeUpdate();
+//        } catch (SQLException e) {
+//            System.out.println("Les paramètres n'ont pas pu être changés...");
+//        }
+//    }
+
 }
