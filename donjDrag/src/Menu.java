@@ -42,7 +42,8 @@ public class Menu {
             persoUn = new Magicien(nomChoisi);
         }
 
-            accessDB.createHero(persoUn);
+//            accessDB.createHero(persoUn);
+            accessDB.getHeroes();
 
         try {
             Game jeuUn = new Game(persoUn);

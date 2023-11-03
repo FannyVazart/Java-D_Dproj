@@ -15,6 +15,23 @@ public class DbCRUD {
         }
         }
 
+    public void getHeroes() {
+
+        try {
+            Statement getSQL = dbAccess.createStatement();
+            ResultSet rs = getSQL.executeQuery("SELECT * FROM hero");
+            while (rs.next()) {
+                String type = rs.getString("Type");
+                String name = rs.getString("Name");
+                int lifelevel = rs.getInt("LifeLevel");
+                int forceattaque = rs.getInt("ForceAttaque");
+                System.out.println(type + " " + name + " " + lifelevel + " " + forceattaque );
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Les données de la base de données ne peuvent pas être affichés...");
+        }
+    }
     public void createHero(Personnage perso) {
 
         try {
