@@ -43,6 +43,7 @@ public abstract class Ennemis implements Case {
         String attaqueFuite = choice1.nextLine();// Read user input
 
         if (attaqueFuite.equals("1")) {
+            System.out.println("Que le combat commence...");
             while (perso.getLifeLevel() > 0 && getLifeLevel() > 0) {
                 setLifeLevel(getLifeLevel() - perso.getForceAttaque());
                 if (getLifeLevel() > 0) {

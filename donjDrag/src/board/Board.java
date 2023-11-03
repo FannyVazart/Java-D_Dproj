@@ -2,14 +2,11 @@ package board;
 
 import characters.Personnage;
 import ennemis.Dragon;
-import ennemis.Ennemis;
 import ennemis.Gobelin;
 import ennemis.Sorcier;
 import offense.*;
 import potions.GdePotion;
 import potions.PotionStand;
-import potions.Potions;
-import board.Case;
 
 import java.util.ArrayList;
 
@@ -44,12 +41,20 @@ public class Board {
             board.set(position, new CaseVide());
     }
 
-    public void posBoard(int pos) {
-        System.out.println(board.get(pos));
+    public void showCaseInfo(int position) {
+        System.out.println(board.get(position));
     }
 
     public ArrayList<Case> getBoard() {
         return board;
+    }
+
+    public int getSize() {
+        return board.size();
+    }
+
+    public int makeInteraction(int position, Personnage perso) {
+        return board.get(position).interaction(perso);
     }
 
 }

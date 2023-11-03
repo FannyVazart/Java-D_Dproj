@@ -11,6 +11,11 @@ public abstract class Personnage {
     private EquipementDefensif eqdef;
     private int position = 1;
 
+    /* Contructeur d'objet de type Personnage
+    qui prend en paramètres son nom, son niveau d'attaque, sa force d'attaque
+    et 2 objets de type EquipementOffensif et EquipementDefensif
+     */
+
     protected Personnage(String namePerso, int lifeLevelPerso, int forceAttaquePerso,
                          EquipementOffensif eqoffPerso, EquipementDefensif eqdefPerso) {
         name = namePerso;
@@ -20,11 +25,21 @@ public abstract class Personnage {
         eqdef = eqdefPerso;
     }
 
+    /*
+    Méthode toString qui retourne une phrase explicite pour décrire l'objet créé
+    avec un simple sout
+     */
+
     public String toString() {
 
         return "Type: " + getType() + ". Nom: " + getName() + ". Points de vie: " + getLifeLevel() +
                ". Points d'attaque: " + getForceAttaque() + ".";
     }
+
+    /*
+    Getters et setters qui permettent d'accéder et modifier les attributs malgré
+    leurs portées private
+     */
 
     public abstract String getType();
 
@@ -42,14 +57,6 @@ public abstract class Personnage {
 
     public int getForceAttaque() {
         return forceAttaque;
-    }
-
-    public EquipementOffensif getEqoff() {
-        return eqoff;
-    }
-
-    public EquipementDefensif getEqdef() {
-        return eqdef;
     }
 
     public void setLifeLevel(int lifeLevel) {
