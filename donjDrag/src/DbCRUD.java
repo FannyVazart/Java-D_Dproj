@@ -49,7 +49,7 @@ public class DbCRUD {
 //    public void editHero(String nomPerso, String newType, String newName, int newLifeLevel, int newForceAttaque) {
 //
 //        try {
-//            PreparedStatement editSQL = dbAccess.prepareStatement("UPDATE hero SET (?, ?, ?, ?) WHERE Name = nomPerso");
+//            PreparedStatement editSQL = dbAccess.prepareStatement("UPDATE hero SET (Type = ?, Name = ?, LifeLevel = ?, ForceAttaque = ?) WHERE Name = nomPerso");
 //            editSQL.setString(1, newType);
 //            editSQL.setString(2, newName);
 //            editSQL.setInt(3, newLifeLevel);

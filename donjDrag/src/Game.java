@@ -18,7 +18,7 @@ public class Game {
 
     public void play(Scanner scanner) throws PersonnageHorsPlateauException {
         System.out.println(perso);
-        System.out.println("Tu es sur la case " + perso.getPosition() + "/64");
+        System.out.println("Tu étais sur la case " + perso.getPosition() + "/64");
         while (position < plateau.getSize()) {
 
             go();

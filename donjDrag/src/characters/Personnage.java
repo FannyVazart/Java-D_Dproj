@@ -37,8 +37,7 @@ public abstract class Personnage {
     }
 
     /*
-    Getters et setters qui permettent d'accéder et modifier les attributs malgré
-    leurs portées private
+    Getters et setters qui permettent d'accéder et modifier les attributs
      */
 
     public abstract String getType();

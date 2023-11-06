@@ -42,8 +42,8 @@ public class Menu {
             persoUn = new Magicien(nomChoisi);
         }
 
-            accessDB.createHero(persoUn);
-//            accessDB.getHeroes();
+//            accessDB.createHero(persoUn);
+            accessDB.getHeroes();
 //            accessDB.editHero("glougloy", "guerrier", "glouglou", 9, 10);
 
         try {
