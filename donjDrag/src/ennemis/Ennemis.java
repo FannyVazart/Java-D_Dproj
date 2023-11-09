@@ -7,11 +7,11 @@ import characters.Personnage;
 
 import java.util.Scanner;
 
-/*
-Une classe abstraite représentant les ennemis rencontrés,
-qui implémente l'interface Case
- */
 
+/**
+ * Class common to each case containing an enemy
+ * implements the Case interface
+ */
 public abstract class Ennemis implements Case {
 
     private String name;
@@ -19,23 +19,25 @@ public abstract class Ennemis implements Case {
     private int forceAttaque;
     private int dice;
 
-    /*
-    Constructeur de la classe
-     */
 
+    /**
+     * Class constructor
+     * @param nameEnn Name that will be shown
+     * @param lifeLevelEnn Life level of the enemy
+     * @param forceAttaqueEnn Force of the enemy
+     */
     protected Ennemis(String nameEnn, int lifeLevelEnn, int forceAttaqueEnn) {
         name = nameEnn;
         lifeLevel = lifeLevelEnn;
         forceAttaque = forceAttaqueEnn;
     }
 
-    /*
-    Override de la méthode interaction déclarée dans l'interface case
-    @param perso de type Personnage: le personnage qui rencontre l'ennemi
-    calcule le résultat de l'interaction via la méthode rounds()
-    @return le niveau de vie de l'ennemi (type int)
+    /**
+     * Override of the interaction method declared in the Case interface
+     * calculates the interaction result via the round() method
+     * @param perso (type Personnage) the character who meets the ennemi
+     * @return the life level of the ennemi
      */
-
     @Override
     public int interaction(Personnage perso) {
 //        punch(perso);
@@ -54,79 +56,52 @@ public abstract class Ennemis implements Case {
 //        }
 //    }
 
-    /*
-    Méthode qui évalue le résultat d'une interaction personnage - ennemi
-    @param perso de type Personnage Cf méthode interaction
+
+    /**
+     * method which evaluates the result of a character-enemy interaction,
+     * round per round:
+     * - asks if the player wants to attack or run away
+     * - if the player wants to attack, the fight starts:
+     *      - while the lives of the character and the enemy are both superior to 0,
+     *      - the enemy's life is decreased by the value of the character's force
+     *      - if the new life of the enemy is superior to 0, the enemy strikes back
+     *      and the character's life is decreased by the value of the enemy's force
+     *      - otherwise, the enemy is vanquished and disappears from the board (eraseCase()
+     *      in the Game class)
+     *      - the new life levels of both the character and the enemy are printed
+     * - if the player wants to run away, the dice is tossed and the player's position is
+     * decreased by the result from the dice
+     * @param perso the involved character
      */
 
     public void rounds(Personnage perso) {
-        /*
-        Demande si le joueur veut attaquer l'ennemi ou fuir
-         */
+
         System.out.println("Que veux tu faire ? Attaquer(1) ou fuir(2)?");
         Scanner choice1 = new Scanner(System.in);  // Create a Scanner object
         String attaqueFuite = choice1.nextLine();// Read user input
-
-        /*
-        Si le joueur veut attaquer, le comabt commence:
-        tant que les vies du personnage et de l'ennemi sont toutes les 2
-        supérieures à 0,
-         */
 
         if (attaqueFuite.equals("1")) {
             System.out.println("Que le combat commence...");
             while (perso.getLifeLevel() > 0 && getLifeLevel() > 0) {
 
-                /*
-                La vie de l'ennemi est soustraite de la valeur des points d'attaque du joueur
-                 */
-
                 setLifeLevel(getLifeLevel() - perso.getForceAttaque());
-
-                /*
-                Si la nouvelle vie de l'ennemi est supérieure à 0, l'ennemi contre attaque
-                et la vie du joueur est soustraite de la valeur des points d'attaque de l'ennemi
-                 */
 
                 if (getLifeLevel() > 0) {
                     perso.setLifeLevel(perso.getLifeLevel() - getForceAttaque());
                     System.out.println("L'ennemi t'a touché ! Tes nouveaux points de vie: " + perso.getLifeLevel());
                 } else {
 
-                    /*
-                    Sinon, l'ennemi est vaincu et disparait du plateau (Cf eraseCase dans la classe Game)
-                     */
-
                     System.out.println("Bravo, tu as vaincu l'ennemi, il a disparu !");
                 }
 
-                /*
-                sout des points de vie restants du joueur
-                 */
-
                 System.out.println("Tes PV: " + perso.getLifeLevel());
 
-                /*
-                sout des points de vie de l'ennemi
-                 */
-
                 if (getLifeLevel() < 0) {
-                    /*
-                    = 0 si inferieur à 0
-                     */
                     System.out.println("Ses PV: 0");
                 } else {
-                    /*
-                    = points de vie réèls si supérieur à 0
-                     */
                     System.out.println("Ses PV: " + getLifeLevel());
                 }
             }
-
-            /*
-            Si le joueur ne veut pas attaquer, on relance lé dé et la position du joueur
-            est soustraite du résultat du dé
-             */
 
         } else {
             dice = 1 + (int) (Math.random() * (6));
@@ -134,10 +109,6 @@ public abstract class Ennemis implements Case {
             perso.setPosition(perso.getPosition() - dice);
         }
     }
-
-    /*
-    Méthodes toString, getters et setters
-     */
 
     public String toString() {
 
